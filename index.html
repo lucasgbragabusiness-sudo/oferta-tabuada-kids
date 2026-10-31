@@ -1,0 +1,2484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Kit Estudo da Tabuada — Seu Filho com a Tabuada na Ponta da Língua</title>
+  <meta name="description" content="O método das 36 contas que destrava a tabuada do seu filho em 15 minutos por dia, sem choro, cobrança ou horas de decoreba.">
+
+  <!-- Google Fonts: Fredoka & Nunito (Tipografia exata do Lovable) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM INSPIRADO EM LIVRO DA LEITURA (LOVABLE)
+       MOBILE-FIRST & ULTRA-RESPONSIVO
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --font-display: 'Fredoka', cursive, sans-serif;
+      --font-body: 'Nunito', sans-serif;
+
+      /* Paleta Doce, Infantil e Confiável */
+      --background: #FFF9F6;
+      --foreground: #222222;
+      --foreground-muted: #6B6470;
+      --card-bg: #FFFFFF;
+      --border-color: #F1E6E0;
+
+      /* Cores de Destaque */
+      --primary: #FF5D87;         /* Rosa Coral Vibrante Lovable */
+      --primary-hover: #E84873;
+      --primary-soft: #FFD9DD;
+      
+      --secondary: #3FB8A4;       /* Verde Menta / Turquesa */
+      --secondary-dark: #2E8A7B;
+      --secondary-soft: #D9F5E8;
+
+      --pastel-lilac: #E9D8FD;
+      --pastel-blue: #D8EEFF;
+      --pastel-yellow: #FFF3C4;
+      --pastel-peach: #FFE2D6;
+
+      --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --shadow-premium: 0 20px 50px -10px rgba(255, 93, 135, 0.35);
+      --radius-box: 32px;
+      --radius-pill: 9999px;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      font-size: 1rem;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* CONTAINER PADRÃO LOVABLE */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    /* ELEMENTOS EM BLUR PASTEL DECORATIVO */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+      max-width: 100vw;
+    }
+
+    .blob-1 { top: -60px; left: -80px; width: 320px; height: 320px; background: var(--pastel-lilac); opacity: 0.65; }
+    .blob-2 { top: 380px; right: -90px; width: 360px; height: 360px; background: var(--pastel-peach); opacity: 0.7; }
+    .blob-3 { bottom: 100px; left: 25%; width: 300px; height: 300px; background: var(--pastel-blue); opacity: 0.55; }
+
+    /* ==========================================================================
+       TIPOGRAFIA
+       ========================================================================== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      color: var(--foreground);
+      line-height: 1.25;
+    }
+
+    .text-pink { color: var(--primary); }
+    .text-mint { color: var(--secondary); }
+    .text-yellow { color: #E5A800; }
+
+    /* ==========================================================================
+       BOTÕES TÁTEIS 3D (ESTILO LOVABLE)
+       ========================================================================== */
+    .btn-3d {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.1rem 2.2rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s ease;
+      user-select: none;
+      text-align: center;
+      min-height: 52px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-3d-pink {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 6px 0 #D93B65, 0 12px 25px rgba(255, 93, 135, 0.4);
+    }
+
+    .btn-3d-pink:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #D93B65, 0 16px 28px rgba(255, 93, 135, 0.45);
+    }
+
+    .btn-3d-pink:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #D93B65, 0 6px 12px rgba(255, 93, 135, 0.3);
+    }
+
+    .btn-3d-mint {
+      background: var(--secondary);
+      color: #FFFFFF;
+      box-shadow: 0 6px 0 var(--secondary-dark), 0 12px 25px rgba(63, 184, 164, 0.35);
+    }
+
+    .btn-3d-mint:hover {
+      background: #37A391;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 var(--secondary-dark), 0 16px 28px rgba(63, 184, 164, 0.4);
+    }
+
+    .btn-3d-mint:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 var(--secondary-dark), 0 6px 12px rgba(63, 184, 164, 0.25);
+    }
+
+    .btn-3d-white {
+      background: #FFFFFF;
+      color: var(--primary);
+      box-shadow: 0 6px 0 #E8D4D8, 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-3d-white:hover {
+      background: #FFF5F7;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #E8D4D8, 0 14px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-3d-white:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #E8D4D8;
+    }
+
+    /* ==========================================================================
+       BARRA DE URGÊNCIA SUPERIOR
+       ========================================================================== */
+    .top-banner {
+      background: linear-gradient(90deg, #FF5D87, #FF8BA7);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.65rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding: 3.5rem 0 4rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FFE2D6;
+      color: #D34B20;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.45rem 1.25rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-section h1 {
+      font-size: 2.35rem;
+      font-weight: 700;
+      max-width: 840px;
+      margin: 0 auto 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--foreground-muted);
+      max-width: 660px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.6;
+    }
+
+    .rating-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FFFFFF;
+      padding: 0.4rem 1.1rem;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #4A4A4A;
+      border: 1px solid var(--border-color);
+    }
+
+    .rating-stars {
+      color: #FFB800;
+      letter-spacing: 2px;
+    }
+
+    .hero-mockup-card {
+      position: relative;
+      max-width: 650px;
+      margin: 2rem auto 2.5rem;
+      border-radius: var(--radius-box);
+      background: #FFFFFF;
+      padding: 0.75rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border: 2px solid var(--border-color);
+    }
+
+    .hero-mockup-img {
+      width: 100%;
+      height: auto;
+      border-radius: calc(var(--radius-box) - 8px);
+      display: block;
+    }
+
+    .hero-microcopy {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--foreground-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       SECTION 2: AS DORES DA MÃE (EMPATIA & IDENTIFICAÇÃO)
+       ========================================================================== */
+    .section-pains {
+      padding: 4.5rem 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header-pill {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .section-header-pill h2 {
+      font-size: 2.2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header-pill p.lead {
+      color: var(--foreground-muted);
+      font-size: 1.1rem;
+    }
+
+    .pains-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .pain-card {
+      background: var(--background);
+      border-radius: 24px;
+      padding: 1.75rem;
+      border: 1px solid var(--border-color);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: transform 0.2s ease;
+    }
+
+    .pain-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .pain-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: #FFE4EB;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .pain-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .pain-content p {
+      font-size: 0.92rem;
+      color: var(--foreground-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SECTION 3: A SOLUÇÃO (O SEGREDO DAS 36 CONTAS)
+       ========================================================================== */
+    .section-solution {
+      padding: 4.5rem 0;
+      position: relative;
+    }
+
+    .comparison-container {
+      max-width: 920px;
+      margin: 2.5rem auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+    }
+
+    .solution-box {
+      border-radius: var(--radius-box);
+      padding: 2.25rem 2rem;
+      position: relative;
+    }
+
+    .box-traditional {
+      background: #FFFFFF;
+      border: 2px dashed #E2D5CF;
+    }
+
+    .box-method {
+      background: #F1FDF8;
+      border: 2px solid var(--secondary);
+      box-shadow: 0 15px 35px rgba(63, 184, 164, 0.15);
+    }
+
+    .box-badge-winner {
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      background: var(--secondary);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .solution-box h3 {
+      font-size: 1.45rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .solution-list {
+      list-style: none;
+    }
+
+    .solution-list li {
+      margin-bottom: 0.85rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       SECTION: VEJA O MATERIAL POR DENTRO (CARROSSEL INFINITO CONTÍNUO)
+       ========================================================================== */
+    .section-carousel {
+      padding: 4.5rem 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .marquee-container {
+      width: 100%;
+      margin: 2.5rem 0 1rem;
+      position: relative;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: infiniteMarquee 32s linear infinite;
+      will-change: transform;
+      pointer-events: auto;
+    }
+
+    @keyframes infiniteMarquee {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .marquee-item {
+      width: 290px;
+      flex-shrink: 0;
+      background: var(--background);
+      border-radius: 26px;
+      padding: 1rem 1rem 1.4rem;
+      border: 2px solid #FFE4EB;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .marquee-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 35px rgba(255, 93, 135, 0.15);
+      border-color: #FFB8CA;
+    }
+
+    .marquee-img-wrap {
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    }
+
+    .marquee-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .marquee-info {
+      text-align: center;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    .marquee-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    .marquee-info h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.25rem;
+      color: var(--foreground);
+    }
+
+    .marquee-info p {
+      font-size: 0.85rem;
+      color: var(--foreground-muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       SECTION 4: OS BÔNUS EXCLUSIVOS
+       ========================================================================== */
+    .section-bonus {
+      padding: 5rem 0;
+    }
+
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .bonus-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 1.25rem;
+      border: 1.5px solid var(--border-color);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .bonus-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .bonus-img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      display: block;
+    }
+
+    .bonus-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 0.75rem;
+      display: inline-block;
+      align-self: center;
+    }
+
+    .bonus-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .bonus-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .bonus-card p {
+      font-size: 0.88rem;
+      color: var(--foreground-muted);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .bonus-value {
+      border-top: 1px dashed var(--border-color);
+      padding-top: 0.75rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #999999;
+    }
+
+    .bonus-value span {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       SECTION 5: 4 PASSOS SIMPLES
+       ========================================================================== */
+    .section-steps {
+      padding: 4.5rem 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--background);
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .step-circle-pink { color: var(--primary); border-color: var(--primary-soft); background: #FFF5F7; }
+    .step-circle-mint { color: var(--secondary); border-color: var(--secondary-soft); background: #F1FDF8; }
+    .step-circle-lilac { color: #8A4FFF; border-color: #E6DCFF; background: #FAF7FF; }
+    .step-circle-yellow { color: #E5A800; border-color: #FFF0BD; background: #FFFCF0; }
+
+    .step-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .step-item p {
+      font-size: 0.88rem;
+      color: var(--foreground-muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       SECTION 6: OS PLANOS (EXATAMENTE COMO O LOVABLE)
+       ========================================================================== */
+    .section-pricing {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .pricing-wrap {
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: #FFFFFF;
+      border-radius: 32px;
+      padding: 2.25rem 2rem 2rem;
+      border: 2px solid var(--border-color);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.25s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .pricing-card.premium-featured {
+      border: 3px solid var(--primary);
+      box-shadow: 0 20px 45px -5px rgba(255, 93, 135, 0.25);
+    }
+
+    .badge-top-card {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 1.25rem;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 12px rgba(255, 93, 135, 0.35);
+      white-space: nowrap;
+    }
+
+    .plan-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.85rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 0.75rem;
+      width: fit-content;
+    }
+
+    .plan-tag-basic { background: #EAE6EE; color: #5D5465; }
+    .plan-tag-complete { background: #FFE2D6; color: #D34B20; }
+
+    .pricing-card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-stars {
+      color: #FFB800;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .pricing-card p.plan-desc {
+      font-size: 0.9rem;
+      color: var(--foreground-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.45;
+    }
+
+    .features-list {
+      list-style: none;
+      margin-bottom: 1.75rem;
+      flex-grow: 1;
+    }
+
+    .features-list li {
+      font-size: 0.92rem;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #333333;
+    }
+
+    .features-list li.disabled {
+      color: #AAAAAA;
+      text-decoration: line-through;
+    }
+
+    .check-svg {
+      width: 18px;
+      height: 18px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .check-svg-mint {
+      width: 18px;
+      height: 18px;
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .price-display {
+      margin-bottom: 1.25rem;
+    }
+
+    .price-from {
+      font-size: 0.85rem;
+      color: var(--foreground-muted);
+      text-decoration: line-through;
+    }
+
+    .price-value {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.05;
+      margin: 0.25rem 0;
+    }
+
+    .price-split {
+      font-size: 0.85rem;
+      color: var(--foreground-muted);
+    }
+
+    .microcopy-secure {
+      font-size: 0.75rem;
+      color: var(--foreground-muted);
+      margin-top: 0.65rem;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       SECTION 7: DEPOIMENTOS DE MÃES
+       ========================================================================== */
+    .section-testimonials {
+      padding: 4.5rem 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .testimonials-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .test-card {
+      background: #FFFDFC;
+      border-radius: 24px;
+      padding: 1.75rem;
+      border: 1.5px solid #F1E5DF;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .test-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .test-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+    }
+
+    .test-stars {
+      color: #FFB800;
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+    }
+
+    .verified-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #2E7D32;
+      background: #E8F5E9;
+      padding: 3px 9px;
+      border-radius: 12px;
+    }
+
+    .test-card p {
+      font-size: 0.94rem;
+      color: #444444;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .test-user {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #EBDCD5;
+    }
+
+    .user-avatar-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid #FF5D87;
+      box-shadow: 0 4px 14px rgba(255, 93, 135, 0.2);
+      flex-shrink: 0;
+    }
+
+    .user-info h5 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--foreground);
+      margin-bottom: 0.15rem;
+    }
+
+    .user-info span {
+      font-size: 0.78rem;
+      color: var(--foreground-muted);
+      display: block;
+    }
+
+    /* ==========================================================================
+       SECTION 8: GARANTIA DE 7 DIAS
+       ========================================================================== */
+    .section-guarantee {
+      padding: 4.5rem 0;
+      text-align: center;
+    }
+
+    .guarantee-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #F1FDF8;
+      border: 2px dashed #3FB8A4;
+      border-radius: var(--radius-box);
+      padding: 3rem 2rem;
+      box-shadow: 0 10px 30px rgba(63, 184, 164, 0.1);
+    }
+
+    .guarantee-shield {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .guarantee-inner h3 {
+      font-size: 1.75rem;
+      font-family: var(--font-display);
+      color: #1A594F;
+      margin-bottom: 1rem;
+    }
+
+    .guarantee-inner p {
+      font-size: 1rem;
+      color: #444444;
+      line-height: 1.65;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       SECTION 9: PERGUNTAS FREQUENTES (FAQ ACCORDION)
+       ========================================================================== */
+    .section-faq {
+      padding: 4.5rem 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .faq-container {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-pill {
+      background: var(--background);
+      border: 1.5px solid var(--border-color);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .faq-pill:hover {
+      border-color: #FFB8CA;
+    }
+
+    .faq-pill.open {
+      border-color: var(--primary);
+      box-shadow: 0 4px 15px rgba(255, 93, 135, 0.1);
+      background: #FFFFFF;
+    }
+
+    .faq-trigger {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--foreground);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 1rem;
+    }
+
+    .faq-trigger svg {
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      color: var(--primary);
+    }
+
+    .faq-pill.open .faq-trigger svg {
+      transform: rotate(180deg);
+    }
+
+    .faq-body {
+      display: none;
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.95rem;
+      color: #555555;
+      line-height: 1.6;
+    }
+
+    .faq-pill.open .faq-body {
+      display: block;
+    }
+
+    /* ==========================================================================
+       SECTION 10: BANNER FINAL DE CONVERSÃO
+       ========================================================================== */
+    .final-cta-section {
+      padding: 4.5rem 0;
+    }
+
+    .final-cta-card {
+      position: relative;
+      background: linear-gradient(135deg, #FF5D87 0%, #FF8BA7 100%);
+      border-radius: var(--radius-box);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      color: #FFFFFF;
+      overflow: hidden;
+      box-shadow: 0 20px 50px -10px rgba(255, 93, 135, 0.4);
+    }
+
+    .final-cta-card h2 {
+      color: #FFFFFF;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .final-cta-card p {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.55;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #F8F1ED;
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--foreground-muted);
+      font-size: 0.85rem;
+    }
+
+    /* ==========================================================================
+       MODAL DE UPGRADE INTELIGENTE (COMPACTO & 100% VISÍVEL NO CELULAR)
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 440px;
+      max-height: 94vh;
+      overflow-y: auto;
+      border-radius: 26px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      border: 3px solid var(--secondary);
+      animation: modalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    @keyframes modalPop {
+      0% { transform: scale(0.92) translateY(15px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .modal-header-strip {
+      background: var(--secondary);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-align: center;
+      padding: 0.65rem 2.25rem 0.65rem 1rem;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.18);
+      color: #FFFFFF;
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.15s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .modal-body {
+      padding: 1.15rem 1.15rem 1rem;
+      text-align: center;
+    }
+
+    .modal-save-pill {
+      display: inline-block;
+      background: #FFE4EB;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .modal-body h3 {
+      font-size: 1.25rem;
+      font-family: var(--font-display);
+      margin-bottom: 0.3rem;
+      color: var(--foreground);
+      line-height: 1.2;
+    }
+
+    .modal-sub {
+      font-size: 0.82rem;
+      color: var(--foreground-muted);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .modal-box-upgrade {
+      background: #F8FBFB;
+      border: 1.5px dashed var(--secondary);
+      border-radius: 16px;
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 0.85rem;
+      text-align: left;
+    }
+
+    .modal-box-upgrade ul {
+      list-style: none;
+      margin-bottom: 0.45rem;
+    }
+
+    .modal-box-upgrade li {
+      font-size: 0.8rem;
+      color: #333333;
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+
+    .modal-price-area {
+      text-align: center;
+      padding-top: 0.5rem;
+      border-top: 1px solid #E0F2EF;
+    }
+
+    .modal-was {
+      font-size: 0.78rem;
+      color: var(--foreground-muted);
+      text-decoration: line-through;
+    }
+
+    .modal-now {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1.05;
+      margin: 0.1rem 0;
+    }
+
+    .modal-diff-text {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    #btnUpgradeAccept {
+      width: 100%;
+      min-height: 50px;
+      padding: 0.85rem 1rem;
+      font-size: 1.05rem;
+    }
+
+    .btn-decline-link {
+      display: inline-block;
+      margin-top: 0.65rem;
+      font-size: 0.78rem;
+      color: var(--foreground-muted);
+      text-decoration: underline;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-decline-link:hover {
+      color: var(--foreground);
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES ULTRA-OTIMIZADAS PARA CELULAR (MOBILE-PERFECT)
+       ========================================================================== */
+
+    /* TABLETS E TELAS MÉDIAS (<= 992px) */
+    @media (max-width: 992px) {
+      .bonus-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .steps-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    /* SMARTPHONES GRANDES E TELAS <= 768px */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+
+      /* Reduz e suaviza os blobs para evitar qualquer lentidão no celular */
+      .blob {
+        opacity: 0.35;
+        filter: blur(50px);
+        transform: scale(0.65);
+      }
+
+      /* Tipografia Compacta e Impactante no Celular */
+      .hero-section {
+        padding: 2.25rem 0 2.75rem;
+      }
+
+      .hero-section h1 {
+        font-size: 1.85rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.98rem;
+        line-height: 1.55;
+        margin-bottom: 1.5rem;
+      }
+
+      .pill-badge {
+        font-size: 0.78rem;
+        padding: 0.38rem 1rem;
+        margin-bottom: 1.15rem;
+      }
+
+      .rating-strip {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-mockup-card {
+        margin: 1.5rem auto 1.75rem;
+        padding: 0.5rem;
+        border-radius: 22px;
+      }
+
+      .hero-mockup-img {
+        border-radius: 16px;
+      }
+
+      /* Botões 3D 100% de Largura no Mobile (Muito mais fáceis de tocar) */
+      .btn-3d {
+        width: 100% !important;
+        max-width: 100%;
+        font-size: 1.05rem;
+        padding: 1rem 1.25rem;
+        min-height: 52px;
+      }
+
+      .hero-microcopy {
+        gap: 0.75rem;
+        font-size: 0.78rem;
+      }
+
+      /* Seções com espaçamento mobile ergonômico */
+      .section-pains,
+      .section-solution,
+      .section-carousel,
+      .section-bonus,
+      .section-steps,
+      .section-pricing,
+      .section-testimonials,
+      .section-guarantee,
+      .section-faq,
+      .final-cta-section {
+        padding: 3rem 0;
+      }
+
+      .section-header-pill {
+        margin-bottom: 1.75rem;
+      }
+
+      .section-header-pill h2 {
+        font-size: 1.65rem;
+        line-height: 1.25;
+      }
+
+      .section-header-pill p.lead {
+        font-size: 0.95rem;
+      }
+
+      /* Dores em 1 Coluna no Celular */
+      .pains-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .pain-card {
+        padding: 1.25rem 1.15rem;
+        border-radius: 20px;
+        align-items: center;
+      }
+
+      .pain-icon-wrapper {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+
+      /* Comparação Método vs Tradicional em 1 Coluna */
+      .comparison-container {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-top: 1.75rem;
+      }
+
+      .solution-box {
+        padding: 1.5rem 1.25rem;
+        border-radius: 22px;
+      }
+
+      /* Carrossel no Celular */
+      .marquee-container {
+        margin: 1.75rem 0 0.75rem;
+        mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+      }
+
+      .marquee-item {
+        width: 240px;
+        padding: 0.85rem 0.85rem 1.15rem;
+        border-radius: 22px;
+      }
+
+      .marquee-info h4 {
+        font-size: 1.05rem;
+      }
+
+      .marquee-info p {
+        font-size: 0.8rem;
+      }
+
+      /* Passos Simples */
+      .steps-row {
+        gap: 1.25rem;
+        margin-top: 1.75rem;
+      }
+
+      .step-item {
+        padding: 1.25rem;
+        background: #FFFFFF;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+      }
+
+      /* Planos de Preço em 1 Coluna */
+      .pricing-wrap {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        margin-top: 1.75rem;
+      }
+
+      .pricing-card {
+        padding: 2rem 1.35rem 1.5rem;
+        border-radius: 24px;
+      }
+
+      .price-value {
+        font-size: 2.85rem;
+      }
+
+      /* Depoimentos em 1 Coluna */
+      .testimonials-row {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-top: 1.75rem;
+      }
+
+      .test-card {
+        padding: 1.35rem 1.15rem;
+        border-radius: 20px;
+      }
+
+      .user-avatar-img {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* Garantia no Celular */
+      .guarantee-inner {
+        padding: 2.25rem 1.25rem;
+        border-radius: 24px;
+      }
+
+      .guarantee-shield {
+        font-size: 3rem;
+      }
+
+      .guarantee-inner h3 {
+        font-size: 1.45rem;
+      }
+
+      .guarantee-inner p {
+        font-size: 0.92rem;
+      }
+
+      /* FAQ no Celular */
+      .faq-container {
+        margin-top: 1.5rem;
+        gap: 0.75rem;
+      }
+
+      .faq-trigger {
+        padding: 1.1rem 1.15rem;
+        font-size: 0.98rem;
+      }
+
+      .faq-body {
+        padding: 0 1.15rem 1.15rem;
+        font-size: 0.9rem;
+      }
+
+      /* Banner Final no Celular */
+      .final-cta-card {
+        padding: 2.5rem 1.25rem;
+        border-radius: 24px;
+      }
+
+      .final-cta-card h2 {
+        font-size: 1.65rem;
+      }
+
+      .final-cta-card p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Modal no Celular */
+      .modal-card {
+        max-height: 94vh;
+        border-radius: 24px;
+      }
+
+      .modal-body {
+        padding: 1.25rem 1rem;
+      }
+
+      .modal-body h3 {
+        font-size: 1.2rem;
+      }
+
+      .modal-now {
+        font-size: 1.95rem;
+      }
+    }
+
+    /* SMARTPHONES PEQUENOS (<= 480px) */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .hero-section h1 {
+        font-size: 1.68rem;
+      }
+
+      .bonus-grid {
+        grid-template-columns: 1fr;
+        gap: 1.15rem;
+        margin-top: 1.5rem;
+      }
+
+      .bonus-card {
+        padding: 1.15rem 1rem;
+        border-radius: 22px;
+      }
+
+      .steps-row {
+        grid-template-columns: 1fr;
+      }
+
+      .marquee-item {
+        width: 225px;
+      }
+
+      .price-value {
+        font-size: 2.65rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ELEMENTOS DECORATIVOS EM BLUR PASTEL (IGUAL AO LOVABLE) -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- BARRA DE URGÊNCIA SUPERIOR -->
+  <div class="top-banner">
+    ⚡ OFERTA LIMITADA — Acesso vitalício + 4 Bônus exclusivos liberados
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="pill-badge">
+        ✨ Método Lúdico das 36 Contas
+      </div>
+
+      <h1>
+        Seu filho com a <span class="text-pink">tabuada na ponta da língua</span> em poucas semanas
+      </h1>
+
+      <p class="hero-subtitle">
+        O método visual e neurocognitivo que destrava a multiplicação com apenas 15 minutos por dia — sem cobrança, brigas ou horas de repetição exaustiva.
+      </p>
+
+      <!-- AVALIAÇÕES DE MÃES -->
+      <div class="rating-strip">
+        <span class="rating-stars">★★★★★</span>
+        <span>4,9/5 — Mais de 3.400 famílias destravadas</span>
+      </div>
+
+      <!-- MOCKUP PRINCIPAL DO MATERIAL -->
+      <div class="hero-mockup-card">
+        <img src="assets/mockup-hero.png" alt="Kit Estudo da Tabuada - O Segredo das 36 Contas" class="hero-mockup-img">
+      </div>
+
+      <!-- BOTÃO DE AÇÃO PRINCIPAL 3D -->
+      <a href="#planos" class="btn-3d btn-3d-pink">
+        <span>QUERO DESTRAVAR MEU FILHO AGORA</span>
+        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+
+      <!-- MICROCOPY DE CONFIANÇA -->
+      <div class="hero-microcopy">
+        <span>⚡ Acesso liberado no e-mail</span>
+        <span>🖨️ Arquivo em PDF para imprimir</span>
+        <span>🛡️ 7 dias de garantia incondicional</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 2: DORES DA MÃE (EMPATIA & IDENTIFICAÇÃO) -->
+  <section class="section-pains">
+    <div class="container">
+      <div class="section-header-pill">
+        <span class="pill-badge" style="background: #FFE2D6; color: #EA580C;">Identificação Real</span>
+        <h2>Toda mãe que passa por isso se sente impotente</h2>
+        <p>Você tenta ajudar com todo o amor do mundo, mas no final do dia a lição de casa vira uma sessão de estresse e frustração.</p>
+      </div>
+
+      <div class="pains-grid">
+        <div class="pain-card">
+          <div class="pain-icon-wrapper" style="background: #FFF0F4; color: #FF5D87;">⚠️</div>
+          <div>
+            <h3>Ele já sabe somar, mas trava na tabuada</h3>
+            <p>Conhece as continhas de mais, mas na hora da multiplicação gasta todos os dedos das mãos e dos pés para tentar chegar no resultado.</p>
+          </div>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon-wrapper" style="background: #FFF8E7; color: #D97706;">😢</div>
+          <div>
+            <h3>A hora da lição de casa vira choro</h3>
+            <p>Basta abrir o caderno de matemática para começar o cansaço, a birra, as lágrimas e você perdendo a paciência após um dia exaustivo.</p>
+          </div>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon-wrapper" style="background: #F0FDF8; color: #059669;">📉</div>
+          <div>
+            <h3>As notas caem e o desespero aumenta</h3>
+            <p>A escola já começou a cobrar agilidade e divisão, e você sente que seu filho está ficando para trás em relação aos colegas da turma.</p>
+          </div>
+        </div>
+
+        <div class="pain-card">
+          <div class="pain-icon-wrapper" style="background: #F3E8FF; color: #7C3AED;">💔</div>
+          <div>
+            <h3>Ele acha que "não é bom em matemática"</h3>
+            <p>O maior perigo: a criança começa a criar aversão aos estudos e assume o rótulo injusto de que exatas é difícil demais para ela.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: A SOLUÇÃO (O SEGREDO DAS 36 CONTAS) -->
+  <section class="section-solution">
+    <div class="container">
+      <div class="section-header-pill">
+        <span class="pill-badge" style="background: #D9F5E8; color: #047857;">O Método Revolucionário</span>
+        <h2>Não é falta de foco. É o método tradicional que está errado.</h2>
+        <p>A escola pede para a criança memorizar 100 números como se fosse uma lista telefônica. Quando ela vê o padrão espelho, tudo muda.</p>
+      </div>
+
+      <div class="comparison-container">
+        <!-- O Jeito Antigo -->
+        <div class="solution-box old-way">
+          <h3 class="text-pink">✕ O Jeito Tradicional (Exaustivo)</h3>
+          <ul class="solution-list">
+            <li><span>❌</span> 100 continhas soltas para memorizar na força bruta.</li>
+            <li><span>❌</span> Horas na mesa repetindo folhas chatas sem contexto.</li>
+            <li><span>❌</span> A criança decora hoje para a prova e esquece na semana seguinte.</li>
+            <li><span>❌</span> Gera trauma, bloqueio emocional e insegurança.</li>
+          </ul>
+        </div>
+
+        <!-- O Jeito Novo das 36 Contas -->
+        <div class="solution-box new-way">
+          <h3 class="text-mint">✓ O Segredo das 36 Contas (Visual)</h3>
+          <ul class="solution-list">
+            <li><span>✨</span> <strong>Apenas 36 operações reais:</strong> O resto são reflexos ($4 \times 7 = 7 \times 4$).</li>
+            <li><span>✨</span> <strong>15 minutos por dia:</strong> Rotina leve que não esgota a criança nem os pais.</li>
+            <li><span>✨</span> <strong>Aprende brincando:</strong> Fixação por meio de jogos de dominó, bingo e pintura.</li>
+            <li><span>✨</span> <strong>Gera autonomia:</strong> A criança ganha velocidade e faz a lição com orgulho.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: VEJA O MATERIAL POR DENTRO (CARROSSEL AUTOMÁTICO) -->
+  <section class="section-carousel">
+      <div class="container" style="text-align: center;">
+        <div class="section-header-pill" style="margin-bottom: 1.5rem;">
+          <span class="pill-badge" style="background: #FFE2D6; color: #EA580C;">✨ Folhas 100% Ilustradas</span>
+          <h2>Veja o material por dentro</h2>
+          <p>Folhas reais desenhadas para prender a atenção do seu filho, com cores neuroestimulantes e passos fáceis de 15 minutos.</p>
+        </div>
+      </div>
+
+      <!-- CARROSSEL INFINITO CONTÍNUO (NUNCA PARA) -->
+      <div class="marquee-container">
+        
+        <div class="marquee-track">
+          <!-- PARTE 1 (8 cards: 4 itens repetidos 2x) -->
+          
+          <!-- Card 1: Tabuada do 8 / Hack do Dobro -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/01_Tabuada_do_8_V2.png" alt="O Segredo do Dobro Triplo" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#FFE4EB; color:#FF5D87;">Volume 2 • A Lógica dos Padrões</span>
+              <h4>O Segredo do Dobro Triplo</h4>
+              <p>Multiplicar por 8 é apenas dobrar 3 vezes (7 → 14 → 28 → 56). Raciocínio rápido!</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Jardim do Oito / Missão Diária -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/02_Atividade_O_Jardim_do_Oito_V2.png" alt="Missão de 15 Minutos" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#D9F5E8; color:#047857;">Volume 2 • Rotina Diária</span>
+              <h4>Missão de 15 Minutos</h4>
+              <p>Passo a passo com flores visuais, desafio das lâmpadas e cálculo relâmpago.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Pinte pelo Resultado / Castelo Disney -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/04_Pinte_Pelo_Resultado_Castelo_V2.png" alt="O Castelo Mágico" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#FEF3C7; color:#D97706;">Atividade • Pinte pelo Resultado</span>
+              <h4>O Castelo Mágico</h4>
+              <p>Cada conta revela uma cor do castelo. Foco, concentração e relaxamento sem estresse.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Bingo Pedagógico da Tabuada -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/03_Bingo_da_Tabuada_V2.png" alt="Bingo da Multiplicação" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#E9D8FD; color:#7C3AED;">Jogo Pedagógico • Família</span>
+              <h4>Bingo da Multiplicação</h4>
+              <p>Cartelas destacáveis para jogar na mesa. Fixa as contas mais difíceis brincando.</p>
+            </div>
+          </div>
+          
+          <!-- Card 1: Tabuada do 8 / Hack do Dobro -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/01_Tabuada_do_8_V2.png" alt="O Segredo do Dobro Triplo" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#FFE4EB; color:#FF5D87;">Volume 2 • A Lógica dos Padrões</span>
+              <h4>O Segredo do Dobro Triplo</h4>
+              <p>Multiplicar por 8 é apenas dobrar 3 vezes (7 → 14 → 28 → 56). Raciocínio rápido!</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Jardim do Oito / Missão Diária -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/02_Atividade_O_Jardim_do_Oito_V2.png" alt="Missão de 15 Minutos" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#D9F5E8; color:#047857;">Volume 2 • Rotina Diária</span>
+              <h4>Missão de 15 Minutos</h4>
+              <p>Passo a passo com flores visuais, desafio das lâmpadas e cálculo relâmpago.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Pinte pelo Resultado / Castelo Disney -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/04_Pinte_Pelo_Resultado_Castelo_V2.png" alt="O Castelo Mágico" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#FEF3C7; color:#D97706;">Atividade • Pinte pelo Resultado</span>
+              <h4>O Castelo Mágico</h4>
+              <p>Cada conta revela uma cor do castelo. Foco, concentração e relaxamento sem estresse.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Bingo Pedagógico da Tabuada -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/03_Bingo_da_Tabuada_V2.png" alt="Bingo da Multiplicação" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#E9D8FD; color:#7C3AED;">Jogo Pedagógico • Família</span>
+              <h4>Bingo da Multiplicação</h4>
+              <p>Cartelas destacáveis para jogar na mesa. Fixa as contas mais difíceis brincando.</p>
+            </div>
+          </div>
+
+          <!-- PARTE 2 (Clone idêntico para loop infinito contínuo a -50%) -->
+          
+          <!-- Card 1: Tabuada do 8 / Hack do Dobro -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/01_Tabuada_do_8_V2.png" alt="O Segredo do Dobro Triplo" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#FFE4EB; color:#FF5D87;">Volume 2 • A Lógica dos Padrões</span>
+              <h4>O Segredo do Dobro Triplo</h4>
+              <p>Multiplicar por 8 é apenas dobrar 3 vezes (7 → 14 → 28 → 56). Raciocínio rápido!</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Jardim do Oito / Missão Diária -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/02_Atividade_O_Jardim_do_Oito_V2.png" alt="Missão de 15 Minutos" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#D9F5E8; color:#047857;">Volume 2 • Rotina Diária</span>
+              <h4>Missão de 15 Minutos</h4>
+              <p>Passo a passo com flores visuais, desafio das lâmpadas e cálculo relâmpago.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Pinte pelo Resultado / Castelo Disney -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/04_Pinte_Pelo_Resultado_Castelo_V2.png" alt="O Castelo Mágico" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#FEF3C7; color:#D97706;">Atividade • Pinte pelo Resultado</span>
+              <h4>O Castelo Mágico</h4>
+              <p>Cada conta revela uma cor do castelo. Foco, concentração e relaxamento sem estresse.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Bingo Pedagógico da Tabuada -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/03_Bingo_da_Tabuada_V2.png" alt="Bingo da Multiplicação" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#E9D8FD; color:#7C3AED;">Jogo Pedagógico • Família</span>
+              <h4>Bingo da Multiplicação</h4>
+              <p>Cartelas destacáveis para jogar na mesa. Fixa as contas mais difíceis brincando.</p>
+            </div>
+          </div>
+          
+          <!-- Card 1: Tabuada do 8 / Hack do Dobro -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/01_Tabuada_do_8_V2.png" alt="O Segredo do Dobro Triplo" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#FFE4EB; color:#FF5D87;">Volume 2 • A Lógica dos Padrões</span>
+              <h4>O Segredo do Dobro Triplo</h4>
+              <p>Multiplicar por 8 é apenas dobrar 3 vezes (7 → 14 → 28 → 56). Raciocínio rápido!</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Jardim do Oito / Missão Diária -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/02_Atividade_O_Jardim_do_Oito_V2.png" alt="Missão de 15 Minutos" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#D9F5E8; color:#047857;">Volume 2 • Rotina Diária</span>
+              <h4>Missão de 15 Minutos</h4>
+              <p>Passo a passo com flores visuais, desafio das lâmpadas e cálculo relâmpago.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Pinte pelo Resultado / Castelo Disney -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/04_Pinte_Pelo_Resultado_Castelo_V2.png" alt="O Castelo Mágico" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#FEF3C7; color:#D97706;">Atividade • Pinte pelo Resultado</span>
+              <h4>O Castelo Mágico</h4>
+              <p>Cada conta revela uma cor do castelo. Foco, concentração e relaxamento sem estresse.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Bingo Pedagógico da Tabuada -->
+          <div class="marquee-item">
+            <div class="marquee-img-wrap">
+              <img src="assets/03_Bingo_da_Tabuada_V2.png" alt="Bingo da Multiplicação" loading="lazy">
+            </div>
+            <div class="marquee-info">
+              <span class="marquee-tag" style="background:#E9D8FD; color:#7C3AED;">Jogo Pedagógico • Família</span>
+              <h4>Bingo da Multiplicação</h4>
+              <p>Cartelas destacáveis para jogar na mesa. Fixa as contas mais difíceis brincando.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="text-align: center; margin-top: 1.25rem;">
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--foreground-muted); opacity: 0.85;">
+          ✨ Deslizando continuamente • Folhas reais de atividades prontas para imprimir
+        </span>
+      </div>
+    </section>
+
+  <!-- SECTION 4: OS BÔNUS EXCLUSIVOS -->
+  <section class="section-bonus">
+    <div class="container">
+      <div class="section-header-pill">
+        <span class="pill-badge" style="background: #FFE2D6; color: #EA580C;">🎁 Bônus Exclusivos Liberados</span>
+        <h2>Presentes especiais para acelerar a aprendizagem do seu filho</h2>
+        <p>Materiais de apoio criados para transformar a matemática em pura diversão em família.</p>
+      </div>
+
+      <div class="bonus-grid">
+        <div class="bonus-card">
+          <span class="bonus-tag">Bônus 01</span>
+          <img src="assets/bonus-bingo.png" alt="Bônus 1: O Jogo dos Números e Bingo da Tabuada" class="bonus-img">
+          <h4>O Jogo dos Números & Bingo</h4>
+          <p>Trilha de tabuleiro colorida e cartelas de bingo prontas para imprimir e jogar em família.</p>
+          <span class="bonus-value">Valor: R$ 29 (Hoje: Grátis)</span>
+        </div>
+
+        <div class="bonus-card">
+          <span class="bonus-tag">Bônus 02</span>
+          <img src="assets/bonus-pintura.png" alt="Bônus 2: Caderno Pinte Pelo Resultado" class="bonus-img">
+          <h4>Pinte Pelo Resultado</h4>
+          <p>Desenhos matemáticos onde cada cor corresponde a uma conta resolvida com sucesso.</p>
+          <span class="bonus-value">Valor: R$ 19 (Hoje: Grátis)</span>
+        </div>
+
+        <div class="bonus-card">
+          <span class="bonus-tag">Bônus 03</span>
+          <img src="assets/bonus-domino.png" alt="Bônus 3: Dominó da Tabuada" class="bonus-img">
+          <h4>Dominó da Tabuada</h4>
+          <p>Peças coloridas de dominó que ensinam a associar o cálculo mental com o resultado visual.</p>
+          <span class="bonus-value">Valor: R$ 24 (Hoje: Grátis)</span>
+        </div>
+
+        <div class="bonus-card">
+          <span class="bonus-tag">Bônus 04</span>
+          <img src="assets/bonus-divisao.png" alt="Bônus 4: Caderno Divisão Sem Mistério" class="bonus-img">
+          <h4>Divisão Sem Mistério</h4>
+          <p>O guia de transição que usa a tabuada para destravar a divisão de forma suave e sem medo.</p>
+          <span class="bonus-value">Valor: R$ 27 (Hoje: Grátis)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: 4 PASSOS SIMPLES -->
+  <section class="section-steps">
+    <div class="container">
+      <div class="section-header-pill">
+        <span class="pill-badge">Super Fácil</span>
+        <h2>Como funciona na prática?</h2>
+      </div>
+
+      <div class="steps-row">
+        <div class="step-item">
+          <div class="step-circle" style="background: #FFE4EB; color: #FF5D87;">1</div>
+          <h4>COMPRAR</h4>
+          <p>Faça seu pedido seguro em menos de 1 minuto no Pix ou Cartão.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-circle" style="background: #E0F2FE; color: #0284C7;">2</div>
+          <h4>RECEBER</h4>
+          <p>Receba imediatamente no seu e-mail e WhatsApp o arquivo em PDF.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-circle" style="background: #FEF3C7; color: #D97706;">3</div>
+          <h4>IMPRIMIR</h4>
+          <p>Imprima em qualquer impressora comum as folhas da semana.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-circle" style="background: #DCFCE7; color: #16A34A;">4</div>
+          <h4>APLICAR</h4>
+          <p>Apenas 15 minutos por dia com seu filho e veja o milagre acontecer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: OS PLANOS (ESTILO LOVABLE) -->
+  <section id="planos" class="section-pricing">
+    <div class="container">
+      <div class="section-header-pill">
+        <span class="pill-badge" style="background: #FFD9DD; color: #FF5D87;">Escolha Seu Pacote</span>
+        <h2>Dê hoje esse presente para o futuro do seu filho</h2>
+        <p>Acesso vitalício, pagamento único e material liberado em minutos.</p>
+      </div>
+
+      <div class="pricing-wrap">
+
+        <!-- PLANO 1: BÁSICO (R$ 19,90) -> ACIONA O POP-UP DE UPGRADE -->
+        <div class="pricing-card basic">
+          <span class="plan-tag" style="background: #D9F5E8; color: #047857;">Oferta Básica</span>
+          <h3>Plano Básico</h3>
+
+          <div class="pricing-stars">
+            <span>★★★★★</span>
+            <span class="proof-text">4,8/5 — 410 mães escolheram</span>
+          </div>
+
+          <div class="price-display">
+            <div class="price-from">de R$ 37,00</div>
+            <div class="price-value text-mint">R$ 19,90</div>
+            <div class="price-split">💳 Parcele em até 3x no cartão</div>
+          </div>
+
+          <ul class="features-list">
+            <li>
+              <svg class="check-svg-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span>A Matriz Visual das 36 Contas</span>
+            </li>
+            <li>
+              <svg class="check-svg-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span>Exercícios diários essenciais</span>
+            </li>
+            <li>
+              <svg class="check-svg-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span>Arquivo digital em PDF pronto para imprimir</span>
+            </li>
+            <li>
+              <svg class="check-svg-mint" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span>7 dias de garantia incondicional</span>
+            </li>
+            <li class="dimmed">
+              <span>✕</span>
+              <span>Cronograma Completo de 12 Semanas</span>
+            </li>
+            <li class="dimmed">
+              <span>✕</span>
+              <span>Kit de Jogos (Bingo & Dominó)</span>
+            </li>
+            <li class="dimmed">
+              <span>✕</span>
+              <span>Atividades de Pintar pelo Resultado</span>
+            </li>
+            <li class="dimmed">
+              <span>✕</span>
+              <span>Guia Bônus da Divisão Sem Mistério</span>
+            </li>
+          </ul>
+
+          <!-- Botão que abre o Pop-up inteligente de Upgrade para R$ 27 -->
+          <button type="button" class="btn-3d btn-3d-mint" onclick="openUpgradeModal()">
+            QUERO O PLANO BÁSICO
+          </button>
+          <div class="microcopy-secure">🔒 Acesso imediato no seu e-mail</div>
+        </div>
+
+        <!-- PLANO 2: COMPLETO (R$ 37,00) -> MAIS ESCOLHIDO -->
+        <div class="pricing-card premium">
+          <div class="badge-top-card">⭐ Mais Escolhido pelas Mães (84%)</div>
+          
+          <div style="margin-top: 0.5rem;">
+            <span class="plan-tag" style="background: #FFE2D6; color: #EA580C;">Pacote Completo VIP</span>
+            <h3 class="text-pink">Kit + 4 Bônus Exclusivos</h3>
+          </div>
+
+          <img src="assets/mockup-hero.png" alt="Pacote Completo VIP" style="width: 100%; height: 180px; object-fit: cover; border-radius: 20px; margin: 1rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.06);">
+
+          <div class="pricing-stars">
+            <span>★★★★★</span>
+            <span class="proof-text">4,9/5 — Mais de 3.400 mães aprovaram</span>
+          </div>
+
+          <div class="price-display">
+            <div class="price-from">de R$ 97,00</div>
+            <div class="price-value text-pink">R$ 37,00</div>
+            <div class="price-split">💳 Parcele em até 6x no cartão</div>
+          </div>
+
+          <ul class="features-list">
+            <li>
+              <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span><strong>A Matriz Visual das 36 Contas</strong></span>
+            </li>
+            <li>
+              <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span><strong>Cronograma Completo de 12 Semanas</strong></span>
+            </li>
+            <li>
+              <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span><strong>BÔNUS 1:</strong> Jogos de Mesa Lúdicos (Bingo)</span>
+            </li>
+            <li>
+              <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span><strong>BÔNUS 2:</strong> Atividades de Colorir por Código</span>
+            </li>
+            <li>
+              <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span><strong>BÔNUS 3:</strong> Dominó da Multiplicação em PDF</span>
+            </li>
+            <li>
+              <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span><strong>BÔNUS 4:</strong> Caderno da Divisão Sem Mistério</span>
+            </li>
+            <li>
+              <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+              <span><strong>Acesso vitalício</strong> com direito a atualizações</span>
+            </li>
+          </ul>
+
+          <!-- Botão que vai direto ao checkout do Premium de R$ 37 -->
+          <a id="btnPlanPremium" href="https://pay.kiwify.com.br/SEU_LINK_PREMIUM_37" target="_blank" class="btn-3d btn-3d-pink">
+            <span>QUERO O PACOTE COMPLETO</span>
+          </a>
+          <div class="microcopy-secure">🔒 Pagamento 100% seguro • Acesso vitalício</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: DEPOIMENTOS DE MÃES -->
+  <section class="section-testimonials">
+    <div class="container">
+      <div class="section-header-pill">
+        <span class="pill-badge">Resultados Reais</span>
+        <h2>Mães que recuperaram a tranquilidade</h2>
+        <p class="lead" style="margin-top: 0.5rem;">Veja o que diz quem já aplicou o método em casa com os filhos</p>
+      </div>
+
+      <div class="testimonials-row">
+        <div class="test-card">
+          <div>
+            <div class="test-top">
+              <div class="test-stars">★★★★★</div>
+              <span class="verified-tag">✓ Compra Verificada</span>
+            </div>
+            <p>"Meu filho de 8 anos chorava toda vez que abria a tabuada do 7. Com a matriz das 36 contas ele finalmente entendeu a lógica. Hoje em 10 minutos ele termina os exercícios com um sorrisão!"</p>
+          </div>
+          <div class="test-user">
+            <img src="assets/depoimento-mariana.jpg" alt="Mariana Costa" class="user-avatar-img" loading="lazy">
+            <div class="user-info">
+              <h5>Mariana Costa</h5>
+              <span>Mãe do Lucas (8 anos) • São Paulo, SP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <div class="test-top">
+              <div class="test-stars">★★★★★</div>
+              <span class="verified-tag">✓ Compra Verificada</span>
+            </div>
+            <p>"Sou professora e recomendo para todos os pais dos meus alunos. As crianças aprendem 5x mais rápido quando jogam o bingo e o dominó das continhas. O material é impecável e muito lúdico."</p>
+          </div>
+          <div class="test-user">
+            <img src="assets/depoimento-patricia.jpg" alt="Patrícia Silveira" class="user-avatar-img" loading="lazy">
+            <div class="user-info">
+              <h5>Patrícia Silveira</h5>
+              <span>Professora e Psicopedagoga • Belo Horizonte, MG</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-card">
+          <div>
+            <div class="test-top">
+              <div class="test-stars">★★★★★</div>
+              <span class="verified-tag">✓ Compra Verificada</span>
+            </div>
+            <p>"Vale cada centavo! Acabou a guerra diária na lição de casa depois que chego cansada do serviço. Em duas semanas a minha filha já estava calculando tudo de cabeça com facilidade."</p>
+          </div>
+          <div class="test-user">
+            <img src="assets/depoimento-renata.jpg" alt="Renata Ferreira" class="user-avatar-img" loading="lazy">
+            <div class="user-info">
+              <h5>Renata Ferreira</h5>
+              <span>Mãe da Beatriz (9 anos) • Curitiba, PR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: GARANTIA DE 7 DIAS -->
+  <section class="section-guarantee">
+    <div class="container">
+      <div class="guarantee-inner">
+        <div class="guarantee-shield">🛡️</div>
+        <h3>7 dias para testar sem nenhum risco</h3>
+        <p>Baixe o material hoje mesmo, imprima e faça as primeiras atividades com seu filho. Se você não notar uma melhora visível no interesse e na velocidade dele em até 7 dias, devolvemos 100% do seu dinheiro com um único e-mail. Sem perguntas nem burocracia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: PERGUNTAS FREQUENTES -->
+  <section class="section-faq">
+    <div class="container">
+      <div class="section-header-pill">
+        <span class="pill-badge">Dúvidas Rápidas</span>
+        <h2>Tudo o que você precisa saber</h2>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-pill">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Para qual idade é indicado?</span>
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-body">
+            É indicado para crianças a partir dos 7 até os 12 anos. Serve tanto para quem está tendo o primeiro contato com a multiplicação quanto para crianças mais velhas que continuam travando e esquecendo a tabuada.
+          </div>
+        </div>
+
+        <div class="faq-pill">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Como eu recebo o material?</span>
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-body">
+            O material é 100% digital em formato PDF de altíssima qualidade. O envio é automático e imediato após a confirmação do pagamento no seu e-mail e WhatsApp.
+          </div>
+        </div>
+
+        <div class="faq-pill">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Preciso imprimir tudo de uma vez?</span>
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-body">
+            Não! Você pode imprimir apenas a folha de 15 minutos do dia ou a semana que for praticar. O arquivo é seu para sempre e você pode imprimir quantas vezes quiser.
+          </div>
+        </div>
+
+        <div class="faq-pill">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Tenho que pagar mensalidade?</span>
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-body">
+            Não! O pagamento é único. Você paga apenas uma vez e tem acesso vitalício a todo o material e futuros bônus sem nenhuma taxa recorrente.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: BANNER FINAL DE CONVERSÃO -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-card">
+        <div class="final-decor-1"></div>
+        <div class="final-decor-2"></div>
+        
+        <h2>Dê hoje o presente da facilidade com os números</h2>
+        <p>Cada dia sem o método certo é mais um dia de estresse e choro na lição. Comece hoje mesmo — em 7 dias você já vê o resultado no caderno dele.</p>
+        
+        <a href="#planos" class="btn-3d btn-3d-white">
+          <span>QUERO COMEÇAR AGORA</span>
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p style="font-weight: 800; color: #222222; font-size: 1rem; margin-bottom: 0.35rem;">Kit Estudo da Tabuada — O Segredo das 36 Contas</p>
+      <p>Todos os direitos reservados © 2026</p>
+    </div>
+  </footer>
+
+
+  <!-- ==========================================================================
+       MODAL DE UPGRADE INTELIGENTE (ESTILO LOVABLE)
+       Acionado ao clicar no Plano Básico de R$ 19,90
+       Oferece o Plano Premium de R$ 37 por apenas R$ 27 (+ R$ 7,10)
+       ========================================================================== -->
+  <div id="upgradeModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header-strip">
+        <span>⚡ ESPERE! LEVE O COMPLETO POR MAIS BARATO!</span>
+        <button type="button" class="modal-close-btn" onclick="closeUpgradeModal()" aria-label="Fechar pop-up">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <span class="modal-save-pill">🎁 DESCONTO DE R$ 10,00 LIBERADO</span>
+
+        <h3>Leve o Kit Completo com Desconto!</h3>
+        <p class="modal-sub">
+          Por <strong>apenas mais R$ 7,10</strong> (menos que um refrigerante), você leva o Kit Completo com todos os 4 bônus:
+        </p>
+
+        <div class="modal-box-upgrade">
+          <ul>
+            <li>✅ <strong>Cronograma de 12 Semanas</strong> + Jogos (Bingo e Dominó)</li>
+            <li>✅ <strong>Livro de Pintura</strong> + Bônus da Divisão Sem Mistério</li>
+          </ul>
+
+          <div class="modal-price-area">
+            <span class="modal-was">De R$ 37,00</span>
+            <div class="modal-now">R$ 27,00</div>
+            <span class="modal-diff-text">Apenas +R$ 7,10 a mais que o plano básico!</span>
+          </div>
+        </div>
+
+        <!-- Botão Aceitar: Imediatamente visível sem rolagem -->
+        <a id="btnUpgradeAccept" href="https://pay.kiwify.com.br/SEU_LINK_PREMIUM_27" target="_blank" class="btn-3d btn-3d-mint">
+          <span>SIM, QUERO O COMPLETO POR R$ 27!</span>
+        </a>
+
+        <!-- Botão Recusar: Vai para o checkout do básico por R$ 19,90 -->
+        <a id="btnUpgradeDecline" href="https://pay.kiwify.com.br/SEU_LINK_BASICO_19" target="_blank" class="btn-decline-link">
+          Não, prefiro pagar R$ 19,90 e ficar sem os 4 bônus
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       SCRIPTS INTERATIVOS & CONFIGURAÇÃO DOS LINKS DE CHECKOUT
+       ========================================================================== -->
+  <script>
+    /* ========================================================================
+       CONFIGURAÇÃO DOS SEUS LINKS DE CHECKOUT (Kiwify, Hotmart, etc.)
+       Basta colar seus links aqui:
+       ======================================================================== */
+    const CONFIG_CHECKOUT = {
+      planoBasico_19: "https://pay.kiwify.com.br/SEU_LINK_BASICO_19",
+      planoUpgrade_27: "https://pay.kiwify.com.br/SEU_LINK_PREMIUM_27",
+      planoPremium_37: "https://pay.kiwify.com.br/SEU_LINK_PREMIUM_37"
+    };
+
+    // Atualiza os links automaticamente nos botões
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnAccept = document.getElementById("btnUpgradeAccept");
+      const btnDecline = document.getElementById("btnUpgradeDecline");
+      const btnPremium = document.getElementById("btnPlanPremium");
+      
+      if (btnAccept) btnAccept.href = CONFIG_CHECKOUT.planoUpgrade_27;
+      if (btnDecline) btnDecline.href = CONFIG_CHECKOUT.planoBasico_19;
+      if (btnPremium) btnPremium.href = CONFIG_CHECKOUT.planoPremium_37;
+    });
+
+    /* ========================================================================
+       CONTROLE DO MODAL DE UPGRADE
+       ======================================================================== */
+    function openUpgradeModal() {
+      const modal = document.getElementById('upgradeModal');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeUpgradeModal() {
+      const modal = document.getElementById('upgradeModal');
+      modal.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Fechar ao clicar fora da caixinha
+    document.getElementById('upgradeModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeUpgradeModal();
+      }
+    });
+
+    /* ========================================================================
+       ACCORDION DO FAQ
+       ======================================================================== */
+    function toggleFaq(btn) {
+      const pill = btn.parentElement;
+      const isActive = pill.classList.contains('active');
+      
+      document.querySelectorAll('.faq-pill').forEach(el => el.classList.remove('active'));
+      
+      if (!isActive) {
+        pill.classList.add('active');
+      }
+    }
+
+    /* ========================================================================
+       ACCORDION DO FAQ
+       ======================================================================== */
+    function toggleFaq(btn) {
+      const pill = btn.parentElement;
+      const isActive = pill.classList.contains('active');
+      
+      document.querySelectorAll('.faq-pill').forEach(el => el.classList.remove('active'));
+      
+      if (!isActive) {
+        pill.classList.add('active');
+      }
+    }
+
+    /* ========================================================================
+       CONTROLE DO CARROSSEL AUTOMÁTICO
+       ======================================================================== */
+    let currentSlide = 0;
+    const totalSlides = 4;
+    let autoPlayTimer = null;
+
+    function updateCarousel() {
+      const track = document.getElementById('carouselTrack');
+      const dots = document.querySelectorAll('.carousel-dot');
+      if (!track) return;
+      track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    function startAutoPlay() {
+      if (autoPlayTimer) clearInterval(autoPlayTimer);
+      autoPlayTimer = setInterval(nextSlide, 3500);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) clearInterval(autoPlayTimer);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const wrapper = document.getElementById('carouselWrapper');
+      if (wrapper) {
+        wrapper.addEventListener('mouseenter', stopAutoPlay);
+        wrapper.addEventListener('mouseleave', startAutoPlay);
+        wrapper.addEventListener('touchstart', stopAutoPlay, { passive: true });
+        wrapper.addEventListener('touchend', startAutoPlay, { passive: true });
+      }
+      startAutoPlay();
+    });
+  </script>
+
+</body>
+</html>
