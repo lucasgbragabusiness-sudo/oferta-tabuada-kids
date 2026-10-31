@@ -1580,6 +1580,32 @@
     }
 
   </style>
+  <!-- LowTrack Pixel Tracking -->
+  <script>
+    window.pixelId = "lt_px_b1e7d5ecf68d";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://lowtrack.com.br/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '4616332021941103');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=4616332021941103&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -2139,7 +2165,7 @@
           </ul>
 
           <!-- Botão que vai direto ao checkout do Premium de R$ 37 -->
-          <a id="btnPlanPremium" href="https://pay.kiwify.com.br/SEU_LINK_PREMIUM_37" target="_blank" class="btn-3d btn-3d-pink">
+          <a id="btnPlanPremium" href="https://ggcheckout.app/checkout/v5/ClvVD2mjOhCau8NjKbBuBJ" target="_blank" class="btn-3d btn-3d-pink">
             <span>QUERO O PACOTE COMPLETO</span>
           </a>
           <div class="microcopy-secure">🔒 Pagamento 100% seguro • Acesso vitalício</div>
@@ -2339,12 +2365,12 @@
         </div>
 
         <!-- Botão Aceitar: Imediatamente visível sem rolagem -->
-        <a id="btnUpgradeAccept" href="https://pay.kiwify.com.br/SEU_LINK_PREMIUM_27" target="_blank" class="btn-3d btn-3d-mint">
+        <a id="btnUpgradeAccept" href="https://ggcheckout.app/checkout/v5/ytR2XBiGBtx3dEIXLTT03U" target="_blank" class="btn-3d btn-3d-mint">
           <span>SIM, QUERO O COMPLETO POR R$ 27!</span>
         </a>
 
         <!-- Botão Recusar: Vai para o checkout do básico por R$ 19,90 -->
-        <a id="btnUpgradeDecline" href="https://pay.kiwify.com.br/SEU_LINK_BASICO_19" target="_blank" class="btn-decline-link">
+        <a id="btnUpgradeDecline" href="https://ggcheckout.app/checkout/v5/oV0Rej3FEzXrn8p3iaOnPv" target="_blank" class="btn-decline-link">
           Não, prefiro pagar R$ 19,90 e ficar sem os 4 bônus
         </a>
       </div>
@@ -2361,9 +2387,9 @@
        Basta colar seus links aqui:
        ======================================================================== */
     const CONFIG_CHECKOUT = {
-      planoBasico_19: "https://pay.kiwify.com.br/SEU_LINK_BASICO_19",
-      planoUpgrade_27: "https://pay.kiwify.com.br/SEU_LINK_PREMIUM_27",
-      planoPremium_37: "https://pay.kiwify.com.br/SEU_LINK_PREMIUM_37"
+      planoBasico_19: "https://ggcheckout.app/checkout/v5/oV0Rej3FEzXrn8p3iaOnPv",
+      planoUpgrade_27: "https://ggcheckout.app/checkout/v5/ytR2XBiGBtx3dEIXLTT03U",
+      planoPremium_37: "https://ggcheckout.app/checkout/v5/ClvVD2mjOhCau8NjKbBuBJ"
     };
 
     // Atualiza os links automaticamente nos botões
