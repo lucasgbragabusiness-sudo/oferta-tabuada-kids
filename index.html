@@ -1001,17 +1001,12 @@
       border-color: #FFB8CA;
     }
 
-    .faq-pill.open {
-      border-color: var(--primary);
-      box-shadow: 0 4px 15px rgba(255, 93, 135, 0.1);
-      background: #FFFFFF;
-    }
-
     .faq-trigger {
       width: 100%;
       text-align: left;
       background: none;
       border: none;
+      outline: none;
       padding: 1.25rem 1.5rem;
       font-family: var(--font-display);
       font-size: 1.05rem;
@@ -1022,6 +1017,12 @@
       justify-content: space-between;
       cursor: pointer;
       gap: 1rem;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .faq-trigger:focus {
+      outline: none;
     }
 
     .faq-trigger svg {
@@ -1030,20 +1031,35 @@
       color: var(--primary);
     }
 
-    .faq-pill.open .faq-trigger svg {
+    .faq-pill.open,
+    .faq-pill.active {
+      border-color: var(--primary);
+      box-shadow: 0 4px 15px rgba(255, 93, 135, 0.12);
+      background: #FFFFFF;
+    }
+
+    .faq-pill.open .faq-trigger svg,
+    .faq-pill.active .faq-trigger svg {
       transform: rotate(180deg);
     }
 
     .faq-body {
       display: none;
-      padding: 0 1.5rem 1.25rem;
+      padding: 0 1.5rem 1.35rem;
       font-size: 0.95rem;
       color: #555555;
       line-height: 1.6;
     }
 
-    .faq-pill.open .faq-body {
+    .faq-pill.open .faq-body,
+    .faq-pill.active .faq-body {
       display: block;
+      animation: faqFadeIn 0.25s ease;
+    }
+
+    @keyframes faqFadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ==========================================================================
@@ -2429,26 +2445,19 @@
        ACCORDION DO FAQ
        ======================================================================== */
     function toggleFaq(btn) {
-      const pill = btn.parentElement;
-      const isActive = pill.classList.contains('active');
+      const pill = btn.closest('.faq-pill');
+      if (!pill) return;
+      const isOpen = pill.classList.contains('open') || pill.classList.contains('active');
       
-      document.querySelectorAll('.faq-pill').forEach(el => el.classList.remove('active'));
+      // Fecha todos os itens
+      document.querySelectorAll('.faq-pill').forEach(el => {
+        el.classList.remove('open');
+        el.classList.remove('active');
+      });
       
-      if (!isActive) {
-        pill.classList.add('active');
-      }
-    }
-
-    /* ========================================================================
-       ACCORDION DO FAQ
-       ======================================================================== */
-    function toggleFaq(btn) {
-      const pill = btn.parentElement;
-      const isActive = pill.classList.contains('active');
-      
-      document.querySelectorAll('.faq-pill').forEach(el => el.classList.remove('active'));
-      
-      if (!isActive) {
+      // Se estava fechado, abre
+      if (!isOpen) {
+        pill.classList.add('open');
         pill.classList.add('active');
       }
     }
