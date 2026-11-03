@@ -26,29 +26,31 @@
       --font-display: 'Fredoka', cursive, sans-serif;
       --font-body: 'Nunito', sans-serif;
 
-      /* Paleta Doce, Infantil e Confiável */
-      --background: #FFF9F6;
+      /* Paleta Lúdica, Neutra de Gênero (Meninos & Meninas) e Confiável */
+      --background: #FFFDF9;
       --foreground: #222222;
       --foreground-muted: #6B6470;
       --card-bg: #FFFFFF;
-      --border-color: #F1E6E0;
+      --border-color: #F0EAE1;
 
-      /* Cores de Destaque */
-      --primary: #FF5D87;         /* Rosa Coral Vibrante Lovable */
-      --primary-hover: #E84873;
-      --primary-soft: #FFD9DD;
+      /* Cores de Destaque Neutras e Solares */
+      --primary: #FF7A00;         /* Laranja Solar Vibrante (Universal & Alta Conversão) */
+      --primary-hover: #E66A00;
+      --primary-dark: #C45500;
+      --primary-soft: #FFE6D3;
+      --primary-light: #FFF8F3;
       
-      --secondary: #3FB8A4;       /* Verde Menta / Turquesa */
-      --secondary-dark: #2E8A7B;
-      --secondary-soft: #D9F5E8;
+      --secondary: #10B981;       /* Verde Esmeralda / Menta (Aprendizado & Sucesso) */
+      --secondary-dark: #059669;
+      --secondary-soft: #D1FAE5;
 
-      --pastel-lilac: #E9D8FD;
-      --pastel-blue: #D8EEFF;
-      --pastel-yellow: #FFF3C4;
-      --pastel-peach: #FFE2D6;
+      --pastel-amber: #FEF3C7;
+      --pastel-purple: #EDE9FE;
+      --pastel-blue: #E0F2FE;
+      --pastel-peach: #FFE6D3;
 
       --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.05);
-      --shadow-premium: 0 20px 50px -10px rgba(255, 93, 135, 0.35);
+      --shadow-premium: 0 20px 50px -10px rgba(255, 122, 0, 0.35);
       --radius-box: 32px;
       --radius-pill: 9999px;
     }
@@ -139,48 +141,51 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .btn-3d-pink {
+    .btn-3d-pink,
+    .btn-3d-primary {
       background: var(--primary);
       color: #FFFFFF;
-      box-shadow: 0 6px 0 #D93B65, 0 12px 25px rgba(255, 93, 135, 0.4);
+      box-shadow: 0 6px 0 var(--primary-dark), 0 12px 25px rgba(255, 122, 0, 0.35);
     }
 
-    .btn-3d-pink:hover {
+    .btn-3d-pink:hover,
+    .btn-3d-primary:hover {
       background: var(--primary-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 0 #D93B65, 0 16px 28px rgba(255, 93, 135, 0.45);
+      box-shadow: 0 8px 0 var(--primary-dark), 0 16px 28px rgba(255, 122, 0, 0.45);
     }
 
-    .btn-3d-pink:active {
+    .btn-3d-pink:active,
+    .btn-3d-primary:active {
       transform: translateY(4px);
-      box-shadow: 0 2px 0 #D93B65, 0 6px 12px rgba(255, 93, 135, 0.3);
+      box-shadow: 0 2px 0 var(--primary-dark), 0 6px 12px rgba(255, 122, 0, 0.25);
     }
 
     .btn-3d-mint {
       background: var(--secondary);
       color: #FFFFFF;
-      box-shadow: 0 6px 0 var(--secondary-dark), 0 12px 25px rgba(63, 184, 164, 0.35);
+      box-shadow: 0 6px 0 var(--secondary-dark), 0 12px 25px rgba(16, 185, 129, 0.35);
     }
 
     .btn-3d-mint:hover {
       background: #37A391;
       transform: translateY(-2px);
-      box-shadow: 0 8px 0 var(--secondary-dark), 0 16px 28px rgba(63, 184, 164, 0.4);
+      box-shadow: 0 8px 0 var(--secondary-dark), 0 16px 28px rgba(16, 185, 129, 0.4);
     }
 
     .btn-3d-mint:active {
       transform: translateY(4px);
-      box-shadow: 0 2px 0 var(--secondary-dark), 0 6px 12px rgba(63, 184, 164, 0.25);
+      box-shadow: 0 2px 0 var(--secondary-dark), 0 6px 12px rgba(16, 185, 129, 0.25);
     }
 
     .btn-3d-white {
       background: #FFFFFF;
-      color: var(--primary);
-      box-shadow: 0 6px 0 #E8D4D8, 0 10px 25px rgba(0, 0, 0, 0.15);
+      color: #C45500;
+      box-shadow: 0 6px 0 #D9C9B8, 0 12px 25px rgba(0, 0, 0, 0.12);
     }
 
     .btn-3d-white:hover {
-      background: #FFF5F7;
+      background: #FFFDF9;
       transform: translateY(-2px);
       box-shadow: 0 8px 0 #E8D4D8, 0 14px 28px rgba(0, 0, 0, 0.2);
     }
@@ -194,17 +199,38 @@
        BARRA DE URGÊNCIA SUPERIOR
        ========================================================================== */
     .top-banner {
-      background: linear-gradient(90deg, #FF5D87, #FF8BA7);
+      background: linear-gradient(90deg, #FF7A00 0%, #FFA23A 100%);
       color: #FFFFFF;
       text-align: center;
       padding: 0.65rem 1rem;
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 15px rgba(255, 122, 0, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-family: var(--font-display);
+    }
+
+    .top-timer-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.22);
+      color: #FFFFFF;
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+      font-family: monospace, var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
     }
 
     /* ==========================================================================
@@ -351,7 +377,7 @@
       width: 48px;
       height: 48px;
       border-radius: 16px;
-      background: #FFE4EB;
+      background: #FFE6D3;
       color: var(--primary);
       display: flex;
       align-items: center;
@@ -401,14 +427,14 @@
     .box-method {
       background: #F1FDF8;
       border: 2px solid var(--secondary);
-      box-shadow: 0 15px 35px rgba(63, 184, 164, 0.15);
+      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
     }
 
     .box-badge-winner {
       position: absolute;
       top: -14px;
       right: 20px;
-      background: var(--secondary);
+      background: var(--primary);
       color: #FFFFFF;
       font-family: var(--font-display);
       font-size: 0.8rem;
@@ -479,7 +505,7 @@
       background: var(--background);
       border-radius: 26px;
       padding: 1rem 1rem 1.4rem;
-      border: 2px solid #FFE4EB;
+      border: 2px solid #F0EAE1;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
@@ -488,8 +514,8 @@
 
     .marquee-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 16px 35px rgba(255, 93, 135, 0.15);
-      border-color: #FFB8CA;
+      box-shadow: 0 16px 35px rgba(255, 122, 0, 0.15);
+      border-color: #FDBA74;
     }
 
     .marquee-img-wrap {
@@ -665,7 +691,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     }
 
-    .step-circle-pink { color: var(--primary); border-color: var(--primary-soft); background: #FFF5F7; }
+    .step-circle-pink, .step-circle-orange { color: var(--primary); border-color: var(--primary-soft); background: #FFF8F3; }
     .step-circle-mint { color: var(--secondary); border-color: var(--secondary-soft); background: #F1FDF8; }
     .step-circle-lilac { color: #8A4FFF; border-color: #E6DCFF; background: #FAF7FF; }
     .step-circle-yellow { color: #E5A800; border-color: #FFF0BD; background: #FFFCF0; }
@@ -716,7 +742,7 @@
 
     .pricing-card.premium-featured {
       border: 3px solid var(--primary);
-      box-shadow: 0 20px 45px -5px rgba(255, 93, 135, 0.25);
+      box-shadow: 0 20px 45px -5px rgba(255, 122, 0, 0.25);
     }
 
     .badge-top-card {
@@ -731,7 +757,7 @@
       font-weight: 700;
       padding: 0.35rem 1.25rem;
       border-radius: var(--radius-pill);
-      box-shadow: 0 4px 12px rgba(255, 93, 135, 0.35);
+      box-shadow: 0 4px 12px rgba(255, 122, 0, 0.35);
       white-space: nowrap;
     }
 
@@ -914,8 +940,8 @@
       height: 56px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2.5px solid #FF5D87;
-      box-shadow: 0 4px 14px rgba(255, 93, 135, 0.2);
+      border: 2.5px solid #F59E0B;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.2);
       flex-shrink: 0;
     }
 
@@ -947,7 +973,7 @@
       border: 2px dashed #3FB8A4;
       border-radius: var(--radius-box);
       padding: 3rem 2rem;
-      box-shadow: 0 10px 30px rgba(63, 184, 164, 0.1);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
     }
 
     .guarantee-shield {
@@ -990,29 +1016,17 @@
     }
 
     .faq-pill {
-      background: var(--background);
-      border: 1.5px solid var(--border-color);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .faq-pill:hover {
-      border-color: #FFB8CA;
-    }
-
-    .faq-pill {
       background: #FFFFFF;
       border: 1.5px solid var(--border-color);
       border-radius: 20px;
       overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
     }
 
     .faq-pill:hover {
-      border-color: #FFB8CA;
-      box-shadow: 0 6px 20px rgba(255, 93, 135, 0.08);
+      border-color: #FDBA74;
+      box-shadow: 0 6px 20px rgba(255, 122, 0, 0.08);
     }
 
     .faq-trigger {
@@ -1058,7 +1072,7 @@
     .faq-pill.open,
     .faq-pill.active {
       border-color: var(--primary);
-      box-shadow: 0 8px 24px rgba(255, 93, 135, 0.12);
+      box-shadow: 0 8px 24px rgba(255, 122, 0, 0.12);
       background: #FFFFFF;
     }
 
@@ -1098,13 +1112,13 @@
 
     .final-cta-card {
       position: relative;
-      background: linear-gradient(135deg, #FF5D87 0%, #FF8BA7 100%);
+      background: linear-gradient(135deg, #FF7A00 0%, #FFA23A 100%);
       border-radius: var(--radius-box);
       padding: 3.5rem 2rem;
       text-align: center;
       color: #FFFFFF;
       overflow: hidden;
-      box-shadow: 0 20px 50px -10px rgba(255, 93, 135, 0.4);
+      box-shadow: 0 20px 50px -10px rgba(255, 122, 0, 0.35);
     }
 
     .final-cta-card h2 {
@@ -1165,7 +1179,7 @@
       overflow-y: auto;
       border-radius: 26px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-      border: 3px solid var(--secondary);
+      border: 3px solid var(--primary);
       animation: modalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
       position: relative;
     }
@@ -1219,8 +1233,8 @@
 
     .modal-save-pill {
       display: inline-block;
-      background: #FFE4EB;
-      color: var(--primary);
+      background: #FEF3C7;
+      color: #92400E;
       font-weight: 800;
       font-size: 0.72rem;
       padding: 0.25rem 0.8rem;
@@ -1652,8 +1666,10 @@
   <div class="blob blob-3"></div>
 
   <!-- BARRA DE URGÊNCIA SUPERIOR -->
+  <!-- BARRA DE URGÊNCIA COM CRONÔMETRO REGRESSIVO -->
   <div class="top-banner">
-    ⚡ OFERTA LIMITADA — Acesso vitalício + 4 Bônus exclusivos liberados
+    <span>⚡ ESTA OFERTA EXPIRA EM:</span>
+    <span class="top-timer-box" id="topTimerBox">14:59</span>
   </div>
 
   <!-- HERO SECTION -->
@@ -1711,7 +1727,7 @@
 
       <div class="pains-grid">
         <div class="pain-card">
-          <div class="pain-icon-wrapper" style="background: #FFF0F4; color: #FF5D87;">⚠️</div>
+          <div class="pain-icon-wrapper" style="background: #FFE6D3; color: #C2410C;">⚠️</div>
           <div>
             <h3>Ele já sabe somar, mas trava na tabuada</h3>
             <p>Conhece as continhas de mais, mas na hora da multiplicação gasta todos os dedos das mãos e dos pés para tentar chegar no resultado.</p>
@@ -1802,7 +1818,7 @@
               <img src="assets/01_Tabuada_do_8_V2.png" alt="O Segredo do Dobro Triplo" loading="lazy">
             </div>
             <div class="marquee-info">
-              <span class="marquee-tag" style="background:#FFE4EB; color:#FF5D87;">Volume 2 • A Lógica dos Padrões</span>
+              <span class="marquee-tag" style="background:#FFE6D3; color:#C2410C;">Volume 2 • A Lógica dos Padrões</span>
               <h4>O Segredo do Dobro Triplo</h4>
               <p>Multiplicar por 8 é apenas dobrar 3 vezes (7 → 14 → 28 → 56). Raciocínio rápido!</p>
             </div>
@@ -1850,7 +1866,7 @@
               <img src="assets/01_Tabuada_do_8_V2.png" alt="O Segredo do Dobro Triplo" loading="lazy">
             </div>
             <div class="marquee-info">
-              <span class="marquee-tag" style="background:#FFE4EB; color:#FF5D87;">Volume 2 • A Lógica dos Padrões</span>
+              <span class="marquee-tag" style="background:#FFE6D3; color:#C2410C;">Volume 2 • A Lógica dos Padrões</span>
               <h4>O Segredo do Dobro Triplo</h4>
               <p>Multiplicar por 8 é apenas dobrar 3 vezes (7 → 14 → 28 → 56). Raciocínio rápido!</p>
             </div>
@@ -1900,7 +1916,7 @@
               <img src="assets/01_Tabuada_do_8_V2.png" alt="O Segredo do Dobro Triplo" loading="lazy">
             </div>
             <div class="marquee-info">
-              <span class="marquee-tag" style="background:#FFE4EB; color:#FF5D87;">Volume 2 • A Lógica dos Padrões</span>
+              <span class="marquee-tag" style="background:#FFE6D3; color:#C2410C;">Volume 2 • A Lógica dos Padrões</span>
               <h4>O Segredo do Dobro Triplo</h4>
               <p>Multiplicar por 8 é apenas dobrar 3 vezes (7 → 14 → 28 → 56). Raciocínio rápido!</p>
             </div>
@@ -1948,7 +1964,7 @@
               <img src="assets/01_Tabuada_do_8_V2.png" alt="O Segredo do Dobro Triplo" loading="lazy">
             </div>
             <div class="marquee-info">
-              <span class="marquee-tag" style="background:#FFE4EB; color:#FF5D87;">Volume 2 • A Lógica dos Padrões</span>
+              <span class="marquee-tag" style="background:#FFE6D3; color:#C2410C;">Volume 2 • A Lógica dos Padrões</span>
               <h4>O Segredo do Dobro Triplo</h4>
               <p>Multiplicar por 8 é apenas dobrar 3 vezes (7 → 14 → 28 → 56). Raciocínio rápido!</p>
             </div>
@@ -2054,7 +2070,7 @@
 
       <div class="steps-row">
         <div class="step-item">
-          <div class="step-circle" style="background: #FFE4EB; color: #FF5D87;">1</div>
+          <div class="step-circle" style="background: #FFE6D3; color: #C2410C;">1</div>
           <h4>COMPRAR</h4>
           <p>Faça seu pedido seguro em menos de 1 minuto no Pix ou Cartão.</p>
         </div>
@@ -2084,7 +2100,7 @@
   <section id="planos" class="section-pricing">
     <div class="container">
       <div class="section-header-pill">
-        <span class="pill-badge" style="background: #FFD9DD; color: #FF5D87;">Escolha Seu Pacote</span>
+        <span class="pill-badge" style="background: #FFE6D3; color: #C2410C;">Escolha Seu Pacote</span>
         <h2>Dê hoje esse presente para o futuro do seu filho</h2>
         <p>Acesso vitalício, pagamento único e material liberado em minutos.</p>
       </div>
@@ -2155,7 +2171,7 @@
           
           <div style="margin-top: 0.5rem;">
             <span class="plan-tag" style="background: #FFE2D6; color: #EA580C;">Pacote Completo VIP</span>
-            <h3 class="text-pink">Kit + 4 Bônus Exclusivos</h3>
+            <h3 style="color: var(--primary);">Kit + 4 Bônus Exclusivos</h3>
           </div>
 
           <div class="pricing-stars">
@@ -2165,7 +2181,7 @@
 
           <div class="price-display">
             <div class="price-from">de R$ 97,00</div>
-            <div class="price-value text-pink">R$ 37,00</div>
+            <div class="price-value" style="color: var(--primary);">R$ 37,00</div>
             <div class="price-split">💳 Parcele em até 6x no cartão</div>
           </div>
 
@@ -2468,13 +2484,8 @@
 
     // Atualiza os links automaticamente nos botões
     document.addEventListener("DOMContentLoaded", () => {
-      // FAQ Accordion click event listeners
-      document.querySelectorAll('.faq-trigger').forEach(trigger => {
-        trigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          toggleFaq(this);
-        });
-      });
+      // Iniciar Timer Regressivo do Topo
+      initTopTimer();
 
       // Fechar modal ao clicar no fundo escuro
       const upgradeModalEl = document.getElementById('upgradeModal');
@@ -2494,6 +2505,43 @@
       if (btnDecline) btnDecline.href = CONFIG_CHECKOUT.planoBasico_19;
       if (btnPremium) btnPremium.href = CONFIG_CHECKOUT.planoPremium_37;
     });
+
+        /* ========================================================================
+       CRONÔMETRO REGRESSIVO DO TOPO (EVERGREEN 15 MINUTOS)
+       ======================================================================== */
+    function initTopTimer() {
+      const timerEl = document.getElementById('topTimerBox');
+      if (!timerEl) return;
+
+      const DURATION = 15 * 60 * 1000;
+      let endTime = localStorage.getItem('tabuada_timer_end');
+      const now = Date.now();
+
+      if (!endTime || now >= parseInt(endTime, 10)) {
+        endTime = now + DURATION;
+        try { localStorage.setItem('tabuada_timer_end', endTime); } catch(e){}
+      } else {
+        endTime = parseInt(endTime, 10);
+      }
+
+      function update() {
+        const current = Date.now();
+        let remaining = Math.max(0, Math.floor((endTime - current) / 1000));
+        
+        if (remaining <= 0) {
+          endTime = Date.now() + DURATION;
+          try { localStorage.setItem('tabuada_timer_end', endTime); } catch(e){}
+          remaining = Math.floor(DURATION / 1000);
+        }
+
+        const mins = Math.floor(remaining / 60);
+        const secs = remaining % 60;
+        timerEl.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
 
     /* ========================================================================
        CONTROLE DO MODAL DE UPGRADE
@@ -2515,12 +2563,19 @@
     /* ========================================================================
        ACCORDION DO FAQ
        ======================================================================== */
+    let lastFaqClickTime = 0;
     function toggleFaq(triggerEl) {
+      const now = Date.now();
+      if (now - lastFaqClickTime < 200) {
+        return; // Previne múltiplos disparos em menos de 200ms
+      }
+      lastFaqClickTime = now;
+
       const pill = triggerEl.closest ? triggerEl.closest('.faq-pill') : triggerEl;
       if (!pill) return;
       const isOpen = pill.classList.contains('open') || pill.classList.contains('active');
       
-      // Fecha todos os itens com segurança
+      // Fecha todos os itens
       document.querySelectorAll('.faq-pill').forEach(el => {
         el.classList.remove('open');
         el.classList.remove('active');
@@ -2528,7 +2583,7 @@
         if (btn) btn.setAttribute('aria-expanded', 'false');
       });
       
-      // Se estava fechado, abre o clicado
+      // Se estava fechado, abre o que foi clicado
       if (!isOpen) {
         pill.classList.add('open');
         pill.classList.add('active');
