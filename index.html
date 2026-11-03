@@ -1001,15 +1001,29 @@
       border-color: #FFB8CA;
     }
 
+    .faq-pill {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+    }
+
+    .faq-pill:hover {
+      border-color: #FFB8CA;
+      box-shadow: 0 6px 20px rgba(255, 93, 135, 0.08);
+    }
+
     .faq-trigger {
       width: 100%;
       text-align: left;
-      background: none;
+      background: transparent;
       border: none;
       outline: none;
-      padding: 1.25rem 1.5rem;
+      padding: 1.35rem 1.6rem;
       font-family: var(--font-display);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 700;
       color: var(--foreground);
       display: flex;
@@ -1017,8 +1031,18 @@
       justify-content: space-between;
       cursor: pointer;
       gap: 1rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      box-shadow: none;
+      border-radius: 0;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
+      transition: color 0.2s ease;
+    }
+
+    .faq-trigger:hover {
+      color: var(--primary);
     }
 
     .faq-trigger:focus {
@@ -1027,14 +1051,14 @@
 
     .faq-trigger svg {
       flex-shrink: 0;
-      transition: transform 0.25s ease;
+      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
       color: var(--primary);
     }
 
     .faq-pill.open,
     .faq-pill.active {
       border-color: var(--primary);
-      box-shadow: 0 4px 15px rgba(255, 93, 135, 0.12);
+      box-shadow: 0 8px 24px rgba(255, 93, 135, 0.12);
       background: #FFFFFF;
     }
 
@@ -1045,10 +1069,13 @@
 
     .faq-body {
       display: none;
-      padding: 0 1.5rem 1.35rem;
-      font-size: 0.95rem;
+      padding: 0 1.6rem 1.4rem;
+      font-size: 0.96rem;
       color: #555555;
-      line-height: 1.6;
+      line-height: 1.65;
+      border-top: 1px dashed #F5EAE6;
+      margin-top: 0;
+      padding-top: 1rem;
     }
 
     .faq-pill.open .faq-body,
@@ -1651,14 +1678,9 @@
       </div>
 
       <!-- MOCKUP PRINCIPAL DO MATERIAL (PLACEHOLDER FÁCIL DE TROCAR) -->
+      <!-- MOCKUP PRINCIPAL DO MATERIAL -->
       <div class="hero-mockup-card">
-        <div class="placeholder-box" onclick="alert('Espaço reservado para a foto ou vídeo do seu produto! Basta substituir a div .placeholder-box por uma tag <img> com sua arte.')">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          <div class="placeholder-title">📸 MOCKUP PRINCIPAL DO KIT DA TABUADA</div>
-          <div class="placeholder-desc">Coloque aqui a imagem dos cadernos de atividades, jogos de bingo e dominó para imprimir.</div>
-        </div>
+        <img src="assets/mockup-hero.png" alt="Kit Estudo da Tabuada — O Segredo das 36 Contas" class="hero-mockup-img" loading="eager" width="1200" height="800">
       </div>
 
       <!-- BOTÃO DE AÇÃO PRINCIPAL 3D -->
@@ -2265,7 +2287,7 @@
   </section>
 
   <!-- SECTION 9: PERGUNTAS FREQUENTES -->
-  <section class="section-faq">
+  <section class="section-faq" id="faq">
     <div class="container">
       <div class="section-header-pill">
         <span class="pill-badge">Dúvidas Rápidas</span>
@@ -2273,43 +2295,81 @@
       </div>
 
       <div class="faq-container">
-        <div class="faq-pill">
-          <button class="faq-trigger" onclick="toggleFaq(this)">
+        <!-- Pergunta 1 (Aberta por padrão para mostrar interatividade) -->
+        <div class="faq-pill open active">
+          <button type="button" class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="true">
             <span>Para qual idade é indicado?</span>
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/></svg>
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/>
+            </svg>
           </button>
           <div class="faq-body">
-            É indicado para crianças a partir dos 7 até os 12 anos. Serve tanto para quem está tendo o primeiro contato com a multiplicação quanto para crianças mais velhas que continuam travando e esquecendo a tabuada.
+            É indicado para crianças a partir dos 7 até os 12 anos. Serve tanto para quem está tendo o primeiro contato com a multiplicação no 2º ou 3º ano do Ensino Fundamental, quanto para crianças mais velhas que continuam travando, contando nos dedos e esquecendo as contas de cabeça.
           </div>
         </div>
 
+        <!-- Pergunta 2 -->
         <div class="faq-pill">
-          <button class="faq-trigger" onclick="toggleFaq(this)">
+          <button type="button" class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false">
             <span>Como eu recebo o material?</span>
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/></svg>
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/>
+            </svg>
           </button>
           <div class="faq-body">
-            O material é 100% digital em formato PDF de altíssima qualidade. O envio é automático e imediato após a confirmação do pagamento no seu e-mail e WhatsApp.
+            O material é 100% digital em formato PDF de altíssima resolução. O envio é automático e imediato após a confirmação do pagamento diretamente no seu e-mail e pelo WhatsApp. Você pode baixar em qualquer celular, tablet ou computador.
           </div>
         </div>
 
+        <!-- Pergunta 3 -->
         <div class="faq-pill">
-          <button class="faq-trigger" onclick="toggleFaq(this)">
+          <button type="button" class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false">
             <span>Preciso imprimir tudo de uma vez?</span>
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/></svg>
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/>
+            </svg>
           </button>
           <div class="faq-body">
-            Não! Você pode imprimir apenas a folha de 15 minutos do dia ou a semana que for praticar. O arquivo é seu para sempre e você pode imprimir quantas vezes quiser.
+            Não! Cada atividade é planejada para 1 folha por dia (15 minutinhos). Você pode imprimir apenas a atividade do dia ou da semana que for praticar. O arquivo é seu com acesso vitalício, podendo imprimir quantas vezes quiser.
           </div>
         </div>
 
+        <!-- Pergunta 4 -->
         <div class="faq-pill">
-          <button class="faq-trigger" onclick="toggleFaq(this)">
+          <button type="button" class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false">
             <span>Tenho que pagar mensalidade?</span>
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/></svg>
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/>
+            </svg>
           </button>
           <div class="faq-body">
-            Não! O pagamento é único. Você paga apenas uma vez e tem acesso vitalício a todo o material e futuros bônus sem nenhuma taxa recorrente.
+            Não! O pagamento é taxa única, sem mensalidades nem cobranças ocultas. Você paga uma única vez e garante o kit completo para sempre, incluindo todas as atualizações futuras.
+          </div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="faq-pill">
+          <button type="button" class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false">
+            <span>E se o meu filho não se adaptar?</span>
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            Você tem 7 dias de garantia incondicional blindada. Se por qualquer motivo seu filho não se encantar com as atividades ou não demonstrar evolução rápida, basta nos mandar uma mensagem que devolvemos 100% do seu dinheiro, sem perguntas e sem enrolação.
+          </div>
+        </div>
+
+        <!-- Pergunta 6 -->
+        <div class="faq-pill">
+          <button type="button" class="faq-trigger" onclick="toggleFaq(this)" aria-expanded="false">
+            <span>Consigo imprimir em qualquer impressora?</span>
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m19 9-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            Sim! Todos os cadernos foram diagramados no formato padrão folha A4. Você pode imprimir perfeitamente tanto em impressoras comuns em casa (coloridas ou preto e branco) quanto em gráficas rápidas ou lan houses.
           </div>
         </div>
       </div>
@@ -2408,6 +2468,24 @@
 
     // Atualiza os links automaticamente nos botões
     document.addEventListener("DOMContentLoaded", () => {
+      // FAQ Accordion click event listeners
+      document.querySelectorAll('.faq-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          toggleFaq(this);
+        });
+      });
+
+      // Fechar modal ao clicar no fundo escuro
+      const upgradeModalEl = document.getElementById('upgradeModal');
+      if (upgradeModalEl) {
+        upgradeModalEl.addEventListener('click', function(e) {
+          if (e.target === this) {
+            closeUpgradeModal();
+          }
+        });
+      }
+
       const btnAccept = document.getElementById("btnUpgradeAccept");
       const btnDecline = document.getElementById("btnUpgradeDecline");
       const btnPremium = document.getElementById("btnPlanPremium");
@@ -2432,31 +2510,30 @@
       document.body.style.overflow = 'auto';
     }
 
-    // Fechar ao clicar fora da caixinha
-    document.getElementById('upgradeModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeUpgradeModal();
-      }
-    });
+    // Modal backdrop listener handled in DOMContentLoaded
 
     /* ========================================================================
        ACCORDION DO FAQ
        ======================================================================== */
-    function toggleFaq(btn) {
-      const pill = btn.closest('.faq-pill');
+    function toggleFaq(triggerEl) {
+      const pill = triggerEl.closest ? triggerEl.closest('.faq-pill') : triggerEl;
       if (!pill) return;
       const isOpen = pill.classList.contains('open') || pill.classList.contains('active');
       
-      // Fecha todos os itens
+      // Fecha todos os itens com segurança
       document.querySelectorAll('.faq-pill').forEach(el => {
         el.classList.remove('open');
         el.classList.remove('active');
+        const btn = el.querySelector('.faq-trigger');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
       });
       
-      // Se estava fechado, abre
+      // Se estava fechado, abre o clicado
       if (!isOpen) {
         pill.classList.add('open');
         pill.classList.add('active');
+        const btn = pill.querySelector('.faq-trigger');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
       }
     }
 
